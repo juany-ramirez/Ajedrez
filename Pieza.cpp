@@ -20,26 +20,46 @@ Pieza::Pieza(string tipo, int posicionFila, int posicionColumna, int movFila, in
 Pieza::~Pieza(){
 }
 
-Pieza Pieza::setPeon(){
+bool Pieza::vPeon(int posibleMovF, int posibleMovC){
+	bool condicion = false;
+	//if peon si es el primer movimiento de un peon, entonces se mueve dos veces
 	movFila = 1;
 	movColumna = 1;
-	return *this;
+	return condicion;
 }
 
-Pieza Pieza::setCaballo(){
+bool Pieza::vCaballo(int posibleMovF, int posibleMovC){
+	bool condicion = false;
 	movFila = 3;
 	movColumna = 3;
-	return *this;
+	return condicion;
 }
 
-Pieza Pieza::setTorre(){
+bool Pieza::vTorre(int posibleMovF, int posibleMovC){
+	bool condicion = false;
 	movFila = 8;
 	movColumna = 0;
-	return *this;
+	return condicion;
 }
 
-Pieza Pieza::(){
+bool Pieza::vReina(int posibleMovF, int posibleMovC){
+	bool condicion = false;
 	movFila = 8;
 	movColumna = 8;
-	return *this;
+	return condicion;
+}
+
+bool Pieza::vRey(int posibleMovF, int posibleMovC){
+	bool condicion = false;
+	movFila = 8;
+	movColumna = 8;
+	return condicion;
+}
+
+bool Pieza::vAlfil(int posibleMovF, int posibleMovC){
+	// se puede mover si el numero de columna y fila es igual 
+	bool condicion = false;
+	movFila = 8;
+	movColumna = 8;
+	return condicion;
 }

@@ -1,3 +1,6 @@
+#include "Tablero.h"
+#include "Jugador.h"
+#include "Pieza.h"
 #include <iostream>
 #include <string>
 #include <ncurses.h>
@@ -27,13 +30,17 @@ void impresionLinea();
 	-Validacion de Jaque, tiene que revisar todos los movimientos de todas las piezas para saber si se puede comer a la reina.
 	-Jaque mate, cuando se comen al rey.
 
+
+
+
+
 						JERARQUIA/POLIMORFISMO
-	Tablero(Jugador 1, Jugador 2, string**[][])// no veo la necesidad mas que para guardar las posiciones
+	Tablero(Jugador 1, Jugador 2, string**[][], Funcion guardar tablero)// no veo la necesidad mas que para guardar las posiciones
 		Jugador (int jugadorNum, vector[] piezas, #Funcion - numero de Piezas, #Funcion )
 			Piezas ((string Nombre, int posicionFila, int PosicionColumna)Peon, torre, alfil, Rey, Reina, Caballo)
 				Condiciones (Fila/ Columna [se puede mover (s/n)], Cuantos espacios por fila(SOLO SE NECESITA PONER EL MAX))
 
-***************USAR LA VALIDACION DEL LAB PARA INGRESAR LOS DATOS
+***************   USAR LA VALIDACION DEL LAB PARA INGRESAR LOS DATOS
 */
 
 int main(int argc, char*argv[]){
