@@ -13,7 +13,6 @@ using std::cin;
 using std::string;
 using std::stringstream;
 
-void eliminarMatriz(string**);
 void impresionTablero(Pieza*** matriz);
 bool jaqueMate(Pieza*** tablero);
 void iniciarNcurses();

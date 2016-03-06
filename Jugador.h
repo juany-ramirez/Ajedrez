@@ -1,5 +1,4 @@
 #pragma once
-#include "Pieza.h"
 #include <string>
 
 using std::string;

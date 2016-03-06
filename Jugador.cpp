@@ -7,22 +7,15 @@
 using std::stringstream;
 using std::string;
 
-/*
-Pieza::Pieza(string tipo, int posicionFila, int posicionColumna){
-   this -> tipo = tipo;
-   this -> posicionColumna = posicionColumna;
-   this -> posicionFila = posicionFila;
-}
-*/
-Jugador::Jugador(int jugadorNum){
-	this -> jugadorNum = jugadorNum;
-}
 
-int getJugadorNum(){
+Jugador::Jugador(int jugadorNum):
+	jugadorNum(jugadorNum){}
+
+int Jugador::getJugadorNum(){
 	return jugadorNum;
 }
 
-string ganadorMensaje(){
+string Jugador::ganadorMensaje(){
 	stringstream ss;
 	ss << "Felicidades Jugador #"<< jugadorNum << " has ganado el juego";
 	return ss.str();

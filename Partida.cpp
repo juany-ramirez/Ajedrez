@@ -13,17 +13,19 @@ Partida::Partida(Jugador jugador1, Jugador jugador2):
 Partida::Partida(Jugador jugador1, Jugador jugador2, Pieza*** tablero):
 	jugador1(jugador1), jugador2(jugador2), tablero(tablero){}
 
-Partida::~Partida(){
-
-}
-
-Pieza*** getTablero(){
+Pieza*** Partida::getTablero(){
 	return tablero;
 }
 
 void Partida::guardarTablero(Pieza*** tablero){
 
 }
+
+Pieza*** Partida::recuperarTablero(){
+	
+	return tablero;
+}
+
 
 void Partida::crearTablero(){
 	Pieza*** tablero = new Pieza**[8];
@@ -78,16 +80,8 @@ void Partida::crearPiezas(Pieza*** tablero){
 	}
 }
 
-Pieza*** Partida::recuperarTablero(){
-	Pieza*** tab;
-	return tab;
-}
 
 bool Partida::ganadorJuego( Pieza*** tablero){
 	bool condicion = false;
 	return condicion;
-}
-
-void Partida::asignarPiezasAlInicioPartida(Jugador jugador1, Jugador jugador2, Pieza***  tablero){//creo que deberia de hacerla void y que el string tablero se modifique por referencia.
-	
 }

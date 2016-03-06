@@ -8,14 +8,10 @@ class Pieza{
         string tipo;
         int posicionFila;
         int posicionColumna;
-        int movFila;
-        int movColumna;
 
 public://constructores con 
-		Pieza(string);
-		Pieza(string, int, int);
-        Pieza(string, int, int, int, int);
-        Pieza();
+	Pieza(string);
+	Pieza(string, int, int);
         string toString();
         bool vPeon(int, int);
         bool vCaballo(int, int);
