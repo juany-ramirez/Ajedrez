@@ -1,4 +1,5 @@
 #pragma once
+#include "Pieza.h"
 #include <string>
 
 using std::string;
@@ -6,10 +7,11 @@ using std::string;
 class Jugador{
 private://variables
         int jugadorNum;
-       	string* piezas;
+       	Pieza piezas [];
 public://constructores con 
 		Jugador(int);
-        Jugador(int, string*);
+        Jugador(int, Pieza*);
         ~Jugador();
-        string* crearPiezas();
+        Pieza* crearPiezas();
+        void eliminarPiezas();
 };

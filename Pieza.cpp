@@ -3,6 +3,10 @@
 
 using std::string;
 
+Pieza::Pieza(string tipo){
+   this -> tipo = tipo;
+}
+
 Pieza::Pieza(string tipo, int posicionFila, int posicionColumna){
    this -> tipo = tipo;
    this -> posicionColumna = posicionColumna;
@@ -17,7 +21,11 @@ Pieza::Pieza(string tipo, int posicionFila, int posicionColumna, int movFila, in
    this -> movFila = movFila;
 }
 
-Pieza::~Pieza(){
+Pieza::Pieza(){
+}
+
+string Pieza::toString(){
+	return tipo;
 }
 
 bool Pieza::vPeon(int posibleMovF, int posibleMovC){

@@ -1,33 +1,46 @@
 #include "Tablero.h"
+#include "Pieza.h"
 #include "Jugador.h"
 #include <string>
 
 using std::string;
 
-Tablero::Tablero(Jugador jugador1, Jugador jugador2):
+Partida::Partida(Jugador jugador1, Jugador jugador2):
 	jugador1(jugador1), jugador2(jugador2){}
 
-Tablero::Tablero(Jugador jugador1, Jugador jugador2, string** tablero):
+Partida::Partida(Jugador jugador1, Jugador jugador2, Pieza** tablero):
 	jugador1(jugador1), jugador2(jugador2), tablero(tablero){}
 
-Tablero::~Tablero(){
+Partida::~Partida(){
 
 }
 
-void Tablero::guardarTablero(string** tablero){
-
-}
-
-string** Tablero::recuperarTablero(){
-	string** tablero;
+Pieza** getTablero(){
 	return tablero;
 }
 
-bool Tablero::ganadorJuego(const string** & tablero){
+void Partida::guardarTablero(Pieza** tablero){
+
+}
+
+void Partida::crearTablero(){
+	Pieza** tablero = new Pieza*[8];
+	for(int i=0;i<8;i++){
+		tablero[i]= new Pieza();		
+	}
+}
+
+
+Pieza** Partida::recuperarTablero(){
+	Pieza** tablero;
+	return tablero;
+}
+
+bool Partida::ganadorJuego( Pieza** tablero){
 	bool condicion = false;
 	return condicion;
 }
 
-void Tablero::asignarPiezasAlInicioPartida(Jugador jugador1, Jugador jugador2, string** & tablero){//creo que deberia de hacerla void y que el string tablero se modifique por referencia.
+void Partida::asignarPiezasAlInicioPartida(Jugador jugador1, Jugador jugador2, Pieza**  tablero){//creo que deberia de hacerla void y que el string tablero se modifique por referencia.
 	
 }

@@ -1,22 +1,24 @@
-#include "Jugador.h"
-
 #pragma once
 
+#include "Jugador.h"
+#include "Pieza.h"
 #include <string>
 
 using std::string;
 
-class Tablero{
+class Partida{
 private://variables
-        Jugador jugador1;
-        Jugador jugador2;
-       	string** tablero;
+    Jugador jugador1;
+    Jugador jugador2;
+    Pieza** tablero;
 public://constructores con 
-	Tablero(Jugador jugador1, Jugador jugador2);
-    Tablero(Jugador jugador1, Jugador jugador2, string** tablero);
-    ~Tablero();
-	void guardarTablero(string** tablero);
-    string** recuperarTablero();
-    bool ganadorJuego(const string**& tablero);
-    void asignarPiezasAlInicioPartida(Jugador, Jugador, string**&);
+	Partida(Jugador jugador1, Jugador jugador2);
+    Partida(Jugador jugador1, Jugador jugador2, Pieza** Pieza);
+    ~Partida();
+    Pieza** getTablero();
+	void guardarTablero(Pieza**);
+    Pieza** recuperarTablero();
+    void crearTablero();
+    bool ganadorJuego(Pieza**);// me gustaria que esta parte mandara la pieza** por referencia constante
+    void asignarPiezasAlInicioPartida(Jugador, Jugador, Pieza**);
 };

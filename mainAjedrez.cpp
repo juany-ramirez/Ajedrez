@@ -13,14 +13,20 @@ using std::cin;
 using std::string;
 using std::stringstream;
 
-string** crearMatriz();
+Pieza** crearMatriz();
 void eliminarMatriz(string**);
 void impresionTablero(string** matriz);
 bool jaqueMate(string** tablero);
 void iniciarNcurses();
 void impresionLinea();
+Partida nuevaPartida();
 
 /*
+
+	*****ACORDARME QUE ESTOY HACIENDO USO DE LA MEMORIA DINAMICA // Hay que delete
+	la pieza nula por defecto es la V
+	el constructor por defecto tiene que tener el colochito? se lo quite
+
 							VALIDACIONES
 	-Ver si se puede mover la pieza (porque al principio no se puede)
 	-Validacion de movimientos para cada pieza.
@@ -34,8 +40,8 @@ void impresionLinea();
 
 
 
-						JERARQUIA/POLIMORFISMO
-	Tablero(Jugador 1, Jugador 2, string**[][], Funcion guardar tablero)// no veo la necesidad mas que para guardar las posiciones
+						POLIMORFISMO
+	Partida(Jugador 1, Jugador 2, string**[][], Funcion guardar tablero)// no veo la necesidad mas que para guardar las posiciones
 		Jugador (int jugadorNum, vector[] piezas, #Funcion - numero de Piezas, #Funcion )
 			Piezas ((string Nombre, int posicionFila, int PosicionColumna)Peon, torre, alfil, Rey, Reina, Caballo)
 				Condiciones (Fila/ Columna [se puede mover (s/n)], Cuantos espacios por fila(SOLO SE NECESITA PONER EL MAX))
@@ -44,6 +50,8 @@ void impresionLinea();
 */
 
 int main(int argc, char*argv[]){
+	
+	/*
 	iniciarNcurses();
 	int x,y;
 	getmaxyx(stdscr,y,x);
@@ -87,6 +95,17 @@ int main(int argc, char*argv[]){
 	refresh();
 	endwin();
 	return 0;
+	*/
+}
+
+Partida nuevaPartida(){
+	Jugador j1(1);
+	Jugador j2(2);
+	j1.crearPiezas();
+	j2.crearPiezas();
+	Partida juego(j1, j2);
+	juego.crearTablero();
+	return juego;
 }
 
 void iniciarNcurses(){
@@ -104,19 +123,16 @@ bool jaqueMate(string** tablero){
 	return jaqueM;
 }
 
-string** crearMatriz(){
-	string** matriz = new string*[8];
+Pieza** crearMatriz(){
+	Pieza** matriz = new Pieza*[8];
 	for(int i=0;i<8;i++){
-		matriz[i]= new string[8];		
+		matriz[i]= new Pieza();		
 	}
-	for(int i=0;i<8;i++)
-            for(int j=0;j<8;j++)
-                matriz[i][j] = "O";
-
+	
 	return matriz;
 }
 
-void eliminarMatriz(string** matriz){
+void eliminarMatriz(Pieza** matriz){
 	for(int i=0;i<8;i++){
             for(int j=0;j<8;j++){
                 delete[] matriz[i];

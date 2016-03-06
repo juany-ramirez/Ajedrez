@@ -5,7 +5,6 @@
 using std::string;
 
 class Pieza{
-private://variables
         string tipo;
         int posicionFila;
         int posicionColumna;
@@ -13,9 +12,11 @@ private://variables
         int movColumna;
 
 public://constructores con 
+		Pieza(string);
 		Pieza(string, int, int);
         Pieza(string, int, int, int, int);
-        ~Pieza();
+        Pieza();
+        string toString();
         bool vPeon(int, int);
         bool vCaballo(int, int);
         bool vTorre(int, int);
