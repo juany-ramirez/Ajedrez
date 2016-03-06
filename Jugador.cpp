@@ -7,51 +7,23 @@
 using std::stringstream;
 using std::string;
 
-Jugador::Jugador(int jugadorNum):
-	jugadorNum(jugadorNum){}
-
-Jugador::Jugador(int jugadorNum, Pieza piezas []):
-	jugadorNum(jugadorNum), piezas(piezas){}
-
-Jugador::~Jugador(){
-
+/*
+Pieza::Pieza(string tipo, int posicionFila, int posicionColumna){
+   this -> tipo = tipo;
+   this -> posicionColumna = posicionColumna;
+   this -> posicionFila = posicionFila;
+}
+*/
+Jugador::Jugador(int jugadorNum){
+	this -> jugadorNum = jugadorNum;
 }
 
-Pieza* Jugador::crearPiezas(){
-	/*
-	piezas = new Pieza[16];
-	int filaInicial=0, columnaInicial=0;
+int getJugadorNum(){
+	return jugadorNum;
+}
+
+string ganadorMensaje(){
 	stringstream ss;
-	for(int i = 0; i<16; i++){
-		ss.str("");
-		if(i<8){
-			ss << "P" << jugadorNum;
-			piezas[i]= new Pieza(ss.str());
-		}
-		if(i==8 || i ==15){
-			ss << "T" << jugadorNum;
-			piezas[i]= new Pieza(ss.str());
-		}
-		if(i==9 || i==14){
-			ss << "C" << jugadorNum;
-			piezas[i]= new Pieza(ss.str());
-		}
-		if(i==10 || i==13){
-			ss << "A" << jugadorNum;
-			piezas[i]= new Pieza(ss.str());
-		}
-		if(i==11){
-			ss << "Q" << jugadorNum;
-			piezas[i]= new Pieza(ss.str());
-		}
-		if(i==12){
-			ss << "K" << jugadorNum;
-			piezas[i]= new Pieza(ss.str());
-		}
-	}*/
-	return piezas;
-}
-
-void Jugador::eliminarPiezas(){
-
+	ss << "Felicidades Jugador #"<< jugadorNum << " has ganado el juego";
+	return ss.str();
 }

@@ -7,11 +7,8 @@ using std::string;
 class Jugador{
 private://variables
         int jugadorNum;
-       	Pieza piezas [];
 public://constructores con 
-		Jugador(int);
-        Jugador(int, Pieza*);
-        ~Jugador();
-        Pieza* crearPiezas();
-        void eliminarPiezas();
+		Jugador(int=0);
+        int getJugadorNum();
+        string ganadorMensaje();
 };

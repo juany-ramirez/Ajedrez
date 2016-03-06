@@ -1,5 +1,7 @@
 #include "Pieza.h"
 #include <string>
+#include <cmath>
+
 
 using std::string;
 
@@ -30,9 +32,19 @@ string Pieza::toString(){
 
 bool Pieza::vPeon(int posibleMovF, int posibleMovC){
 	bool condicion = false;
-	//if peon si es el primer movimiento de un peon, entonces se mueve dos veces
+	/*//if peon si es el primer movimiento de un peon, entonces se mueve dos veces
 	movFila = 1;
 	movColumna = 1;
+	int difC = posicionColumna - posibleMovC;
+    int difF = posicionFila - posibleMovF;
+    if(difx == 0) {//Movida VerticaL      
+        if(abs(dify) == 1){//Si mueve un casillero
+            condicion= true;
+        }
+    }else if(abs(dify) == 2){ //Movida larga de peon
+            condicion = true;
+        }
+	*/
 	return condicion;
 }
 

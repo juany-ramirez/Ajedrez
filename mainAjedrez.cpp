@@ -1,4 +1,4 @@
-#include "Tablero.h"
+#include "Partida.h"
 #include "Jugador.h"
 #include "Pieza.h"
 #include <iostream>
@@ -13,15 +13,15 @@ using std::cin;
 using std::string;
 using std::stringstream;
 
-Pieza** crearMatriz();
 void eliminarMatriz(string**);
-void impresionTablero(string** matriz);
-bool jaqueMate(string** tablero);
+void impresionTablero(Pieza*** matriz);
+bool jaqueMate(Pieza*** tablero);
 void iniciarNcurses();
 void impresionLinea();
-Partida nuevaPartida();
 
 /*
+
+	como se crea de manera dinamica un arreglo de objetos
 
 	*****ACORDARME QUE ESTOY HACIENDO USO DE LA MEMORIA DINAMICA // Hay que delete
 	la pieza nula por defecto es la V
@@ -51,7 +51,7 @@ Partida nuevaPartida();
 
 int main(int argc, char*argv[]){
 	
-	/*
+	
 	iniciarNcurses();
 	int x,y;
 	getmaxyx(stdscr,y,x);
@@ -62,16 +62,25 @@ int main(int argc, char*argv[]){
 	move(1+y/2,(x/2)-20);
 	printw("[Presionar Enter para Continuar]");
 	attroff(COLOR_PAIR(1));
+	attron(COLOR_PAIR(1));
+	printw("Presionar 'G' para ver partidas guardadas");
+	attroff(COLOR_PAIR(1));
 	int opcionMenu = 1;
 	while(getch()=='\n'){
 		int turnoJugador=1;
-		string** tablero = crearMatriz();
+		// 					Llamada de nuevo Tablero
+		Jugador j1(1);
+		Jugador j2(2);
+		Partida P1(j1, j2);
+		P1.crearTablero();
 		string posiciones;
-		while(!jaqueMate(tablero)){//cambiar a while
+		while(!jaqueMate(P1.getTablero())){//cambiar a while
 			clear();
 			move(1+y/2,(x/2)-20);	
-			impresionTablero(tablero);
+			impresionTablero(P1.getTablero());
 			posiciones = getch();
+			echo();
+			printw("%s",posiciones);
 			if(turnoJugador%2){//Turno jugador 2
 
 			}else{
@@ -95,18 +104,9 @@ int main(int argc, char*argv[]){
 	refresh();
 	endwin();
 	return 0;
-	*/
+	
 }
 
-Partida nuevaPartida(){
-	Jugador j1(1);
-	Jugador j2(2);
-	j1.crearPiezas();
-	j2.crearPiezas();
-	Partida juego(j1, j2);
-	juego.crearTablero();
-	return juego;
-}
 
 void iniciarNcurses(){
 	initscr();
@@ -118,31 +118,15 @@ void iniciarNcurses(){
 	init_pair(5,COLOR_RED,COLOR_BLACK);
 }
 
-bool jaqueMate(string** tablero){
+bool jaqueMate(Pieza*** tablero){
 	bool jaqueM = false;
 	return jaqueM;
 }
 
-Pieza** crearMatriz(){
-	Pieza** matriz = new Pieza*[8];
-	for(int i=0;i<8;i++){
-		matriz[i]= new Pieza();		
-	}
-	
-	return matriz;
-}
-
-void eliminarMatriz(Pieza** matriz){
-	for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
-                delete[] matriz[i];
-        }
-    }
-	delete[] matriz;
-	return;
-} 
-
-void impresionTablero(string** matriz){
+void impresionTablero(Pieza*** matriz){
+	int x,y;
+	getmaxyx(stdscr,y,x);
+	move(y/2,(x/2)-20);	
 	int charAscii = 65;
 	init_pair(3,COLOR_BLACK,COLOR_WHITE);
 	init_pair(4,COLOR_RED,COLOR_BLACK);
@@ -164,7 +148,7 @@ void impresionTablero(string** matriz){
             //attroff(COLOR_PAIR(bandera));
             attron(COLOR_PAIR(bandera));
             printw("       ");
-            printw((char*)matriz[i][j].c_str());
+            printw((char*)matriz[i][j]->toString().c_str());
             printw("       ");
             attroff(COLOR_PAIR(bandera));
             //attron(COLOR_PAIR(bandera));
