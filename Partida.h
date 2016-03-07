@@ -14,7 +14,7 @@ private://variables
 public://constructores con 
 	Partida(Jugador jugador1, Jugador jugador2);
     Partida(Jugador jugador1, Jugador jugador2, Pieza*** Pieza);
-    
+    ~Partida();
     Pieza*** getTablero();
 
     void guardarTablero(Pieza***);

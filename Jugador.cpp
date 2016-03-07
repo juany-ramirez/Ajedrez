@@ -1,5 +1,4 @@
 #include "Jugador.h"
-#include "Pieza.h"
 
 #include <string>
 #include <sstream>
@@ -10,6 +9,10 @@ using std::string;
 
 Jugador::Jugador(int jugadorNum):
 	jugadorNum(jugadorNum){}
+
+Jugador::~Jugador(){
+
+}
 
 int Jugador::getJugadorNum(){
 	return jugadorNum;

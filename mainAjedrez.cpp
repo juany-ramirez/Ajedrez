@@ -56,14 +56,21 @@ int main(int argc, char*argv[]){
 	getmaxyx(stdscr,y,x);
 	move(y/2,(x/2)-20);	
 	bkgd(COLOR_PAIR(1));
+	init_pair(1,COLOR_WHITE,COLOR_BLACK);
+	init_pair(2,COLOR_YELLOW,COLOR_BLACK);
+	init_pair(3,COLOR_BLUE,COLOR_BLACK);
+	init_pair(4,COLOR_GREEN,COLOR_BLACK);
+	init_pair(5,COLOR_RED,COLOR_BLACK);
+
 	attron(COLOR_PAIR(1));
 	printw("JUEGO DE AJEDREZ");
 	move(1+y/2,(x/2)-20);
 	printw("[Presionar Enter para Continuar]");
-	attroff(COLOR_PAIR(1));
+	/*attroff(COLOR_PAIR(1));
 	attron(COLOR_PAIR(1));
 	printw("Presionar 'G' para ver partidas guardadas");
 	attroff(COLOR_PAIR(1));
+	*/
 	int opcionMenu = 1;
 	while(getch()=='\n'){
 		int turnoJugador=1;
@@ -110,11 +117,6 @@ int main(int argc, char*argv[]){
 void iniciarNcurses(){
 	initscr();
 	start_color();
-	init_pair(1,COLOR_WHITE,COLOR_BLACK);
-	init_pair(2,COLOR_YELLOW,COLOR_BLACK);
-	init_pair(3,COLOR_BLUE,COLOR_BLACK);
-	init_pair(4,COLOR_GREEN,COLOR_BLACK);
-	init_pair(5,COLOR_RED,COLOR_BLACK);
 }
 
 bool jaqueMate(Pieza*** tablero){
@@ -147,7 +149,7 @@ void impresionTablero(Pieza*** matriz){
             //attroff(COLOR_PAIR(bandera));
             attron(COLOR_PAIR(bandera));
             printw("       ");
-            printw((char*)matriz[i][j]->toString().c_str());
+            //printw((char*)matriz[i][j]->toString().c_str());
             printw("       ");
             attroff(COLOR_PAIR(bandera));
             //attron(COLOR_PAIR(bandera));

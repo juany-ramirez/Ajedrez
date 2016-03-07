@@ -12,6 +12,7 @@ class Pieza{
 public://constructores con 
 	Pieza(string);
 	Pieza(string, int, int);
+        ~Pieza();
         string toString();
         bool vPeon(int, int);
         bool vCaballo(int, int);

@@ -13,6 +13,10 @@ Partida::Partida(Jugador jugador1, Jugador jugador2):
 Partida::Partida(Jugador jugador1, Jugador jugador2, Pieza*** tablero):
 	jugador1(jugador1), jugador2(jugador2), tablero(tablero){}
 
+Partida::~Partida(){
+
+}
+
 Pieza*** Partida::getTablero(){
 	return tablero;
 }
@@ -32,9 +36,6 @@ void Partida::crearTablero(){
 	for(int i=0;i<8;i++){
 		tablero[i]= new Pieza*[8];		
 	}
-	for(int i=0;i<8;i++)
-		for(int j=0;j<8;j++)
-			tablero[i][j] = NULL;
 	crearPiezas(tablero);
 }
 
@@ -42,7 +43,6 @@ void Partida::crearPiezas(Pieza*** tablero){
 	for(int i=0 ; i<8 ; i++){
 		tablero[1][i] = new Pieza("P1",1,i);
 	}
-
 	tablero[0][0] = new Pieza("T1",0,0);
 	tablero[0][7] = new Pieza("T1",0,7);
 
@@ -71,11 +71,9 @@ void Partida::crearPiezas(Pieza*** tablero){
 	tablero[7][3] = new Pieza("K2",7,3);
 	tablero[7][4] = new Pieza("Q2",7,4);
 
-	for(int i=0 ; i<8 ; i++){
+	for(int i=2 ; i<6 ; i++){
 		for(int j=0 ; j<8 ; j++){
-			if(tablero[i][j] == NULL){
-				tablero[i][j] = new Pieza("V",i,j);
-			} 
+			tablero[i][j] = new Pieza("V",i,j);
 		}
 	}
 }

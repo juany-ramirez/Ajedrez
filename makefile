@@ -7,7 +7,7 @@ mainAjedrez.o:	mainAjedrez.cpp Pieza.h
 Pieza.o:	Pieza.cpp Pieza.h
 	g++ -c Pieza.cpp 
 
-Jugador.o:	Jugador.cpp Jugador.h Pieza.h
+Jugador.o:	Jugador.cpp Jugador.h
 	g++ -c Jugador.cpp
 
 Partida.o:	Partida.cpp Partida.h Jugador.h Pieza.h

@@ -17,6 +17,10 @@ Pieza::Pieza(string tipo, int posicionFila, int posicionColumna){
    this -> posicionFila = posicionFila;
 }
 
+Pieza::~Pieza(){
+	
+}
+
 string Pieza::toString(){
 	return tipo;
 }
